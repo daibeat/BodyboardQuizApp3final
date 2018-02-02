@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">BodyboardQuizApp3</string>
+    <string name="font">serif-monospace</string>
+    <string name="insertname">sans-serif</string>
+    <string name="bodyboard_quiz">Bodyboard Quiz</string>
+    <string name="insertname2">Insert your rider name here:</string>
+    <string name="name">name</string>
+    <string name="question1">1) There is another way to ride a bodyboard other than lying down, and is called:</string>
+    <string name="drop_knee">Drop Knee</string>
+    <string name="flat_knee">Flat Knee</string>
+    <string name="turn_knee">Turn Knee</string>
+    <string name="slip_knee">Slip Knee</string>
+    <string name="question2">2) Modern bodyboarding was created by Tom Morey in the year:</string>
+    <string name="_1988">1988</string>
+    <string name="_1971">1971</string>
+    <string name="_1990">1990</string>
+    <string name="_1940">1940</string>
+    <string name="question3">3) What is the complete outfit to practice bodyboarding?:</string>
+    <string name="board">board</string>
+    <string name="wetsuit">wetsuit</string>
+    <string name="fins">fins</string>
+    <string name="wax">wax</string>
+    <string name="question4">4) What does the bodyboarding move ARS stand for?:</string>
+    <string name="awesome_rolling_spin">Awesome Rolling Spin</string>
+    <string name="aerial_reverse_spin">Aerial Reverse Spin</string>
+    <string name="aerial_rip_slide">Aerial Rip Slide</string>
+    <string name="air_roll_spin">Air Roll Spin</string>
+    <string name="question5">5) Where is located the famous surf spot known as “Pipeline”?:</string>
+    <string name="australia">Australia</string>
+    <string name="polynesia">Polynesia</string>
+    <string name="hawaii">Hawaii</string>
+    <string name="south_africa">South Africa</string>
+    <string name="question6">6) Boogieboard is another way to refer to bodyboard:</string>
+    <string name="question6a">True</string>
+    <string name="question6b">False</string>
+    <string name="submit">submit</string>
+    <string name="reset">reset</string>
+
+</resources>
