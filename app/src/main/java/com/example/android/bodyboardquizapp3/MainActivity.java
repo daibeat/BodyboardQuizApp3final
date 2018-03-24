@@ -9,8 +9,15 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-
 public class MainActivity extends AppCompatActivity {
+
+    String q5 = "Hawaii";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
 
     /**
      * This app is a quiz about Bodyboard sport.
@@ -20,12 +27,6 @@ public class MainActivity extends AppCompatActivity {
      **/
 
     int points = 0;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
 
     /**
      * This method calculates the score
@@ -42,10 +43,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method is called when the question 1.
+     * This method is called for question 1.
      */
     private void quizOne() {
-        RadioButton Question1 = (RadioButton) findViewById(R.id.drop_knee);
+        RadioButton Question1 = (RadioButton) findViewById(R.id.drop_knee_rb);
         boolean right1 = Question1.isChecked();
         if (right1) {
             points = points + 1;
@@ -53,10 +54,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method is called when the question 2.
+     * This method is called for question 2.
      */
     private void quizTwo() {
-        RadioButton Question2 = (RadioButton) findViewById(R.id.date2);
+        RadioButton Question2 = (RadioButton) findViewById(R.id.date2_rb);
         boolean right2 = Question2.isChecked();
         if (right2) {
             points = points + 1;
@@ -64,29 +65,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method is called when the question 3.
+     * This method is called for question 3.
      */
     private void quizThree() {
-        CheckBox box1 = (CheckBox) findViewById(R.id.option_a);
-        boolean check1 = box1.isChecked();
+        CheckBox box1 = (CheckBox) findViewById(R.id.option_a_cb);
+        CheckBox box2 = (CheckBox) findViewById(R.id.option_b_cb);
+        CheckBox box3 = (CheckBox) findViewById(R.id.option_c_cb);
+        CheckBox box4 = (CheckBox) findViewById(R.id.option_d_cb);
+
+        boolean check1 = box1.isChecked() & box3.isChecked();
         if (check1) {
             points = points + 1;
-
         }
-
-        CheckBox box2 = (CheckBox) findViewById(R.id.option_c);
-        boolean check2 = box2.isChecked();
-        if (check2)
-            points = points + 1;
-
-
     }
 
     /**
-     * This method is called when the question 4.
+     * This method is called for question 4.
      */
     private void quizFour() {
-        RadioButton Question4 = (RadioButton) findViewById(R.id.quiz4_d);
+        RadioButton Question4 = (RadioButton) findViewById(R.id.quiz4_d_rb);
         boolean right4 = Question4.isChecked();
         if (right4) {
             points = points + 1;
@@ -94,52 +91,48 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method is called when the question 5.
+     * This method is called for question 5.
      */
     private void quizFive() {
-        RadioButton Question5 = (RadioButton) findViewById(R.id.quiz5_c);
-        boolean right5 = Question5.isChecked();
-        if (right5) {
+        EditText Question5 = (EditText) findViewById(R.id.answerText5_et);
+        String userEntry = Question5.getText().toString();
+        if (userEntry.equals(q5)) {
             points = points + 1;
         }
     }
 
     /**
-     * This method is called when the question 6.
+     * This method is called for question 6.
      */
     private void quizSix() {
-        RadioButton Question6 = (RadioButton) findViewById(R.id.quiz6_a);
+        RadioButton Question6 = (RadioButton) findViewById(R.id.quiz6_a_rb);
         boolean right6 = Question6.isChecked();
         if (right6) {
             points = points + 1;
         }
     }
 
-
     /**
      * This method is called when submit button is clicked.
      */
     public void submit(View view) {
         calculateScore();
-        EditText nameField = (EditText) findViewById(R.id.enterName);
+        EditText nameField = (EditText) findViewById(R.id.enterName_et);
         String enterName = nameField.getText().toString();
-        String text = enterName + ", your score is " + points;
+        String text;
+        text = enterName + getString(R.string.scoreIs) + points + getString(R.string.exclamation);
         if (points <= 1) {
-            text += "\nThat is a real wipeout";
+            text += getString(R.string.wipeout);
         } else if (points <= 3) {
-            text += "\nWell, I am sure you can do it better!";
+            text += getString(R.string.doItBetter);
         } else if (points <= 5) {
-            text += "\nExcellent rider!";
+            text += getString(R.string.Excellent);
         } else if (points <= 6) {
-            text += "\nYou are an authentic bodyboarder!";
-        } else if (points <= 7) {
-            text += "\nAwesome, You are a pro bodyboarder!";
+            text += getString(R.string.authentic);
         }
-
         int duration = Toast.LENGTH_LONG;
         Toast toast = Toast.makeText(this, text, duration);
         toast.show();
-
     }
 
     /**
@@ -148,16 +141,14 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void reset(View view) {
-        ((RadioGroup) findViewById(R.id.quiz1)).clearCheck();
-        ((RadioGroup) findViewById(R.id.quiz2)).clearCheck();
-        ((CheckBox) findViewById(R.id.option_a)).setChecked(false);
-        ((CheckBox) findViewById(R.id.option_b)).setChecked(false);
-        ((CheckBox) findViewById(R.id.option_c)).setChecked(false);
-        ((CheckBox) findViewById(R.id.option_d)).setChecked(false);
-        ((RadioGroup) findViewById(R.id.quiz4)).clearCheck();
-        ((RadioGroup) findViewById(R.id.quiz5)).clearCheck();
-        ((RadioGroup) findViewById(R.id.quiz6)).clearCheck();
-
-
+        ((RadioGroup) findViewById(R.id.quiz1_rg)).clearCheck();
+        ((RadioGroup) findViewById(R.id.quiz2_rg)).clearCheck();
+        ((CheckBox) findViewById(R.id.option_a_cb)).setChecked(false);
+        ((CheckBox) findViewById(R.id.option_b_cb)).setChecked(false);
+        ((CheckBox) findViewById(R.id.option_c_cb)).setChecked(false);
+        ((CheckBox) findViewById(R.id.option_d_cb)).setChecked(false);
+        ((RadioGroup) findViewById(R.id.quiz4_rg)).clearCheck();
+        ((EditText) findViewById(R.id.answerText5_et)).getText().clear();
+        ((RadioGroup) findViewById(R.id.quiz6_rg)).clearCheck();
     }
 }
